@@ -1,0 +1,27 @@
+{
+  "name": "Team-Profile",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "scripts": {
+    "test": "jest --verbose test/*"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shelbylb97/Team-Profile.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shelbylb97/Team-Profile/issues"
+  },
+  "homepage": "https://github.com/shelbylb97/Team-Profile#readme",
+  "dependencies": {
+    "inquirer": "^8.1.2"
+  }
+}
