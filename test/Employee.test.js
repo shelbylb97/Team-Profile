@@ -2,7 +2,7 @@ const { test, expect } = require("@jest/globals");
 const Employee = require("../lib/Employee");
 
 
-test( "Is Employee an obkect", () => {
+test( "Is Employee an object", () => {
     const e = new Employee();
     expect(typeof(e)).toBe('object');
 });

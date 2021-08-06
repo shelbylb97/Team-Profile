@@ -6,50 +6,51 @@ const Manager = require('./Manager')
 const Intern = require('./Intern')
 const Engineer = require('./Engineer')
 const generateHtml = require('./utils/generateHtml')
+const path = require('path')
 
 //inquirer questions 
 const questions = [
     {
             type: 'input',
-            name: 'title',
-            message: 'What is your project name?',
-          },
-          {
-            type: 'input',
             name: 'name',
-            message: 'What is your name?',
+            message: 'What is the team members name?',
           },
           {
             type: 'input',
-            name: 'git',
-            message: 'What is your Github username?',
+            name: 'number',
+            message: 'What is ${data.name}s employee number?',
           },
           {
             type: 'input',
-            name: 'bio',
-            message: 'What is the purpose of your project?',
+            name: 'email',
+            message: 'What is ${data.name}s email?',
           },
           {
-          type: 'input',
-          name: 'learn',
-          message: 'What did you learn from this project?',
+            type: 'input',
+            name: 'office',
+            message: 'What is ${data.names}s office number?',
           },
           {
-          type: 'input',
-          name: 'link1',
-          message: 'Paste your github repo link here',
+        //   type: 'input',
+        //   name: 'learn',
+        //   message: 'What did you learn from this project?',
+        //   },
+        //   {
+        //   type: 'input',
+        //   name: 'link1',
+        //   message: 'Paste your github repo link here',
         
-          },
-          {
-          type: 'input',
-          name: 'link2',
-          message: 'Paste your deployed site link here',
-          },
-          {
-            type: 'input',
-            name: 'screenshot',
-            message: 'Paste the img link for the screenshot of your deployed site here',
-            },
+        //   },
+        //   {
+        //   type: 'input',
+        //   name: 'link2',
+        //   message: 'Paste your deployed site link here',
+        //   },
+        //   {
+        //     type: 'input',
+        //     name: 'screenshot',
+        //     message: 'Paste the img link for the screenshot of your deployed site here',
+        //     },
       
     
 ];
@@ -64,10 +65,10 @@ function writeToFile(fileName, data) {
 //function to initialize 
 function init() {
     inquirer.prompt(questions).then((data) => {
-        console.log('')
+        console.log('Creatinf Team Roster')
         const returnedItem = ;
 
-        writeToFile('/result/README.md', returnedItem)
+        writeToFile('./output/roster.html', returnedItem)
        
     })
 }
