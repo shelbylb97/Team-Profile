@@ -20,6 +20,7 @@ test('can we set id property?', ()=>{
     const e = new Employee("John Doe", id );
     expect(e.id).toBe(id);
 })
+
 test('can we set email property?', ()=>{
     const email = 'test@test.com';
     const e = new Employee("John Doe", 200, email );

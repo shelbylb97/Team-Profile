@@ -1,10 +1,10 @@
 // setting up whats needed for file
 const fs = require('fs')
 const inquirer = require('inquirer');
-const Employee = require('./Employee')
-const Manager = require('./Manager')
-const Intern = require('./Intern')
-const Engineer = require('./Engineer')
+const Employee = require('./lib/Employee')
+const Manager = require('./lib/Manager')
+const Intern = require('./lib/Intern')
+const Engineer = require('./lib/Engineer')
 const generateHtml = require('./utils/generateHtml')
 const path = require('path')
 
@@ -29,31 +29,47 @@ const questions = [
             type: 'input',
             name: 'office',
             message: 'What is ${data.names}s office number?',
-          },
-          {
-        //   type: 'input',
-        //   name: 'learn',
-        //   message: 'What did you learn from this project?',
-        //   },
-        //   {
-        //   type: 'input',
-        //   name: 'link1',
-        //   message: 'Paste your github repo link here',
-        
-        //   },
-        //   {
-        //   type: 'input',
-        //   name: 'link2',
-        //   message: 'Paste your deployed site link here',
-        //   },
-        //   {
-        //     type: 'input',
-        //     name: 'screenshot',
-        //     message: 'Paste the img link for the screenshot of your deployed site here',
-        //     },
-      
-    
+          },   
 ];
+
+
+// menu for engineer and intern 
+const menu = [
+ 
+  {
+   type: 'list',
+   name: 'pick',
+   message: 'What did you learn from this project?',
+   choices: ['intern', 'engineer', 'finish team']
+ },
+];
+
+// engineer questions 
+const engineerQ = [
+  {
+  type: 'input'
+  name: 'git'
+  message: "What is the engineers Github username?"
+  };
+  {
+    type: 'input'
+    name: 'enId'
+    message: "What is the engineers Id number?"
+    };
+    {
+      type: 'input'
+      name: 'enOffice'
+      message: "What their office number?"
+      };
+  {
+    type: 'input'
+    name: 'enEmail'
+    message: "What is their email?"
+    };
+  
+
+]
+
 
 //helper function 
 
@@ -65,8 +81,8 @@ function writeToFile(fileName, data) {
 //function to initialize 
 function init() {
     inquirer.prompt(questions).then((data) => {
-        console.log('Creatinf Team Roster')
-        const returnedItem = ;
+        console.log('Creating Team Roster')
+        const returnedItem = generateHtml(data);
 
         writeToFile('./output/roster.html', returnedItem)
        
