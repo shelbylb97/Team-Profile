@@ -8,27 +8,27 @@ const Engineer = require('./lib/Engineer')
 const generateHtml = require('./utils/generateHtml')
 const path = require('path')
 
-//inquirer questions 
-const questions = [
+//manager sign-in questions 
+const passcode = [
     {
             type: 'input',
             name: 'name',
-            message: 'What is the team members name?',
+            message: 'Enter your name.',
           },
           {
             type: 'input',
             name: 'number',
-            message: 'What is ${data.name}s employee number?',
+            message: 'Enter your ID number.',
           },
           {
             type: 'input',
             name: 'email',
-            message: 'What is ${data.name}s email?',
+            message: 'Enter your email.',
           },
           {
             type: 'input',
             name: 'office',
-            message: 'What is ${data.names}s office number?',
+            message: 'Enter your office number.',
           },   
 ];
 
@@ -68,7 +68,45 @@ const engineerQ = [
     };
   
 
-]
+];
+
+const internQ = [
+  {
+    type: 'input'
+      name: 'inName'
+      message: "What is the interns name"
+  };
+  {
+    type: 'input'
+      name: 'school'
+      message: "What school do they go to?"
+  };
+  {
+    type: 'input'
+      name: 'inId'
+      message: "What the interns Id number?"
+  };
+  {
+    type: 'input'
+      name: 'inEmail'
+      message: "What their email?"
+  };
+
+];
+
+//passcode function
+function signIn() {
+  inquirer.prompt(passcode).then( => {
+    console.log("Opening menu")
+  });
+};
+
+//menu
+function openMenu() {
+  inquirer.prompt(menu).then((data) =>{
+    if 
+  })
+}
 
 
 //helper function 
