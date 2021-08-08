@@ -47,66 +47,74 @@ const menu = [
 // engineer questions 
 const engineerQ = [
   {
-  type: 'input'
-  name: 'git'
-  message: "What is the engineers Github username?"
-  };
+  type: 'input',
+  name: 'git',
+  message: 'What is the engineers Github username?',
+  },
   {
-    type: 'input'
-    name: 'enId'
-    message: "What is the engineers Id number?"
-    };
+    type: 'input',
+    name: 'enId',
+    message: "What is the engineers Id number?",
+    },
     {
-      type: 'input'
-      name: 'enOffice'
-      message: "What their office number?"
-      };
+      type: 'input',
+      name: 'enOffice',
+      message: "What their office number?",
+      },
   {
-    type: 'input'
-    name: 'enEmail'
-    message: "What is their email?"
-    };
+    type: 'input',
+    name: 'enEmail',
+    message: "What is their email?",
+    }
   
 
 ];
 
 const internQ = [
   {
-    type: 'input'
-      name: 'inName'
-      message: "What is the interns name"
-  };
+    type: 'input',
+      name: 'inName',
+      message: "What is the interns name",
+  },
+
   {
-    type: 'input'
-      name: 'school'
-      message: "What school do they go to?"
-  };
+    type: 'input',
+      name: 'school',
+      message: "What school do they go to?",
+  },
+
   {
-    type: 'input'
-      name: 'inId'
-      message: "What the interns Id number?"
-  };
+    type: 'input',
+      name: 'inId',
+      message: "What the interns Id number?",
+  },
+
   {
-    type: 'input'
-      name: 'inEmail'
-      message: "What their email?"
-  };
+    type: 'input',
+      name: 'inEmail',
+      message: "What their email?",
+  },
 
 ];
 
+//empty array for new employee
+let employeeNew = [];
+
 //passcode function
 function signIn() {
-  inquirer.prompt(passcode).then( => {
-    console.log("Opening menu")
+  inquirer.prompt(passcode).then( {
+    return console.log("Opening menu")
   });
 };
 
 //menu
-function openMenu() {
+function runMenu() {
   inquirer.prompt(menu).then((data) =>{
-    if 
+    if (answer === 'Engineer') {
+      inquirer.prompt(engineerQ);
+    }
   })
-}
+};
 
 
 //helper function 
