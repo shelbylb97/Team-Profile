@@ -102,7 +102,7 @@ let employeeNew = [];
 
 //passcode function
 function signIn() {
-  inquirer.prompt(passcode).then( {
+  inquirer.prompt(passcode).then(() =>{
     return console.log("Opening menu")
   });
 };
@@ -111,9 +111,13 @@ function signIn() {
 function runMenu() {
   inquirer.prompt(menu).then((data) =>{
     if (answer === 'Engineer') {
-      inquirer.prompt(engineerQ);
-    }
-  })
+      inquirer.prompt(engineerQ)}
+      else if (answer === 'Intern') {
+        inquirer.prompt(internQ)}
+         else {
+           return inquirer.prompt(menu)
+         }
+      });
 };
 
 
