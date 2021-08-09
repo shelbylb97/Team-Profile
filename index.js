@@ -120,12 +120,12 @@ function signIn() {
 
 //engineer funtion 
 function engQs() {
-  inquirer.prompt(engineerQ).then((data) =>{
+  inquirer.prompt(engineerQ).then((data). =>{
     runMenu();
   })
 };
 
-//intern funtion 
+//intern function 
 function intQs() {
   inquirer.prompt(internQ).then((data) =>{
     runMenu();
@@ -150,14 +150,20 @@ function intQs() {
 function runMenu(){
   inquirer.prompt(menu).then((data) =>{
     if (data.pick === 'add engineer'){
-      engQs();
+      engQs()
     }
     else if (data.pick === 'add intern'){
       intQs();
     }
-    else (console.log("compiling team information")
-  )})
-    };
+    else {
+      console.log("compiling team information")
+      console.log('Creating Team Roster')
+      const returnedItem = generateHtml(data);
+      writeToFile('./output/roster.html', returnedItem)
+    }
+  })
+  
+  };
 
 
 //helper function 
@@ -171,9 +177,9 @@ function writeToFile(fileName, data) {
 function firstInit() {
   inquirer.prompt(passcode).then((data) => {
     runMenu();
-      console.log('Creating Team Roster')
-      const returnedItem = generateHtml(data);
-      writeToFile('./output/roster.html', returnedItem)
+      // console.log('Creating Team Roster')
+      // const returnedItem = generateHtml(data);
+      // writeToFile('./output/roster.html', returnedItem)
   })}
 
 
