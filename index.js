@@ -71,6 +71,12 @@ const engineerQ = [
     name: 'enEmail',
     message: "What is their email?",
     }
+    // {
+    //   type: 'list',
+    //   name: 'enDone',
+    //   message: "Are you done building your team?",
+
+    //   }
   
 
 ];
@@ -120,9 +126,10 @@ function runMenu() {
       else if (data.pick === 'add intern') {
         inquirer.prompt(internQ)}
          else {
-           return inquirer.prompt(menu)
+           console.log("saving team information")
          }
       });
+      
 };
 
 
