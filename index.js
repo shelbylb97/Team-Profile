@@ -118,19 +118,42 @@ function signIn() {
   });
 };
 
-//menu
-function runMenu() {
-  inquirer.prompt(menu).then((data) =>{
-    if (data.pick === 'add engineer') {
-      inquirer.prompt(engineerQ)}
-      else if (data.pick === 'add intern') {
-        inquirer.prompt(internQ)}
-         else {
-           console.log("saving team information")
-         }
-      });
-      
+//engineer funtion 
+function engQs() {
+  inquirer.prompt(engineerQ).then(runMenu)
 };
+
+//intern funtion 
+function intQs() {
+  inquirer.prompt(internQ).then(runMenu)
+};
+
+//menu
+// function runMenu() {
+//   inquirer.prompt(menu).then((data) =>{
+//     if (data.pick === 'add engineer') {
+//       inquirer.prompt(engineerQ)}
+//       else if (data.pick === 'add intern') {
+//         inquirer.prompt(internQ)}
+//          else {
+//            console.log("saving team information")
+//          }
+//       });
+
+// };
+// trying a diff menu 
+
+function runMenu(){
+  inquirer.prompt(menu).then((data) =>{
+    if (data.pick === 'add engineer'){
+      engQs();
+    }
+    else if (data.pick === 'add intern'){
+      intQs();
+    }
+    else (console.log("compiling team information")
+  )})
+    };
 
 
 //helper function 
@@ -143,8 +166,8 @@ function writeToFile(fileName, data) {
 //function to initialize 
 function firstInit() {
   inquirer.prompt(passcode).then((data) => {
+    runMenu();
       console.log('Creating Team Roster')
-      runMenu();
       const returnedItem = generateHtml(data);
       writeToFile('./output/roster.html', returnedItem)
   })}
