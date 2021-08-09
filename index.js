@@ -53,7 +53,7 @@ const engineerQ = [
     },
   {
   type: 'input',
-  name: 'git',
+  name: 'github',
   message: 'What is the engineers Github username?',
   },
   {
@@ -118,9 +118,9 @@ function signIn() {
   });
 };
 
-//engineer funtion 
+//engineer funtion need to push to empty array
 function engQs() {
-  inquirer.prompt(engineerQ).then((data). =>{
+  inquirer.prompt(engineerQ).then((data) =>{
     runMenu();
   })
 };
