@@ -120,12 +120,16 @@ function signIn() {
 
 //engineer funtion 
 function engQs() {
-  inquirer.prompt(engineerQ).then(runMenu)
+  inquirer.prompt(engineerQ).then((data) =>{
+    runMenu();
+  })
 };
 
 //intern funtion 
 function intQs() {
-  inquirer.prompt(internQ).then(runMenu)
+  inquirer.prompt(internQ).then((data) =>{
+    runMenu();
+  })
 };
 
 //menu

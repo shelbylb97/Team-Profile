@@ -30,10 +30,10 @@ function generateHtml(data) {
     
           <div class="card">
             <div class="card-body">
-              <h5 class="card-title">${data.enName}</h5>
-              <h6 class="card-subtitle mb-2 text-muted">ID : ${data.enId}</h6>
-              <h6 class="card-subtitle mb-2 text-muted">Email : ${data.enEmail}</h6>
-              <h6 class="card-subtitle mb-2 text-muted">GitHub URL : ${data.git}</h6>
+              <h5 class="card-title">${data.enName} </h5>
+              <h6 class="card-subtitle mb-2 text-muted">ID : ${data.enId} </h6>
+              <h6 class="card-subtitle mb-2 text-muted">Email : ${data.enEmail} </h6>
+              <h6 class="card-subtitle mb-2 text-muted">GitHub URL : ${data.git} </h6>
             </div>
           </div>
           
