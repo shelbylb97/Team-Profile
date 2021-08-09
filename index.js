@@ -13,22 +13,22 @@ const passcode = [
     {
             type: 'input',
             name: 'name',
-            message: 'Enter your name.',
+            message: 'manager sign in. enter your name.',
           },
           {
             type: 'input',
             name: 'number',
-            message: 'Enter your ID number.',
+            message: 'enter your ID number.',
           },
           {
             type: 'input',
             name: 'email',
-            message: 'Enter your email.',
+            message: 'enter your email.',
           },
           {
             type: 'input',
             name: 'office',
-            message: 'Enter your office number.',
+            message: 'enter your office number.',
           },   
 ];
 
@@ -39,13 +39,18 @@ const menu = [
   {
    type: 'list',
    name: 'pick',
-   message: 'What did you learn from this project?',
-   choices: ['intern', 'engineer', 'finish team']
+   message: 'what would you like to do',
+   choices: ['add intern', 'add engineer', 'finish team']
  },
 ];
 
 // engineer questions 
 const engineerQ = [
+  {
+    type: 'input',
+    name: 'enName',
+    message: 'role set to engineer. enter employee name',
+    },
   {
   type: 'input',
   name: 'git',
@@ -73,9 +78,9 @@ const engineerQ = [
 const internQ = [
   {
     type: 'input',
-      name: 'inName',
-      message: "What is the interns name",
-  },
+    name: 'inName',
+    message: 'role set to intern. enter employee name',
+    },
 
   {
     type: 'input',
@@ -110,9 +115,9 @@ function signIn() {
 //menu
 function runMenu() {
   inquirer.prompt(menu).then((data) =>{
-    if (answer === 'Engineer') {
+    if (data.pick === 'add engineer') {
       inquirer.prompt(engineerQ)}
-      else if (answer === 'Intern') {
+      else if (data.pick === 'add intern') {
         inquirer.prompt(internQ)}
          else {
            return inquirer.prompt(menu)
@@ -129,16 +134,26 @@ function writeToFile(fileName, data) {
 }
 
 //function to initialize 
-function init() {
-    inquirer.prompt(questions).then((data) => {
-        console.log('Creating Team Roster')
-        const returnedItem = generateHtml(data);
+function firstInit() {
+  inquirer.prompt(passcode).then((data) => {
+      console.log('Creating Team Roster')
+      runMenu();
+      const returnedItem = generateHtml(data);
+      writeToFile('./output/roster.html', returnedItem)
+  })}
 
-        writeToFile('./output/roster.html', returnedItem)
+
+// function secondInit() {
+//     inquirer.prompt(runMenu).then((data) => {
+//         console.log('Creating Team Roster')
+//         const returnedItem = generateHtml(data);
+
+//         fs.appendFile('./output/roster.html', returnedItem)
        
-    })
-}
+//     });
+// }
 
 //function call init
- init();
+ firstInit();
+
 
