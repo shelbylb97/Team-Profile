@@ -153,7 +153,7 @@ function runMenu(){
       engQs()
     }
     else if (data.pick === 'add intern'){
-      intQs();
+      intQs()
     }
     else {
       console.log("compiling team information")
