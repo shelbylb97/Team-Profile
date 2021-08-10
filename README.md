@@ -13,7 +13,12 @@ SO THAT I have quick access to their emails and GitHub profiles
 so i have spent over 20 hours on this homework and it still doesnt work. I know what i have to do but am unable to figure out how. I need to be pushing the data into the empty employeeNew array and then push the information into generateHtml. And I need to also use the constructor functions somehow. Overall, this homework was overwhelming and simply more than one weeks of work. I would need two more weeks to get it running properly. 
 
 #### how it runs
-currently the inquirer function works and you are able to add a intern or engineer but youll notice most of the data come back undefined. it doesnt have working tests right now. i tried.  
+currently the inquirer function works and you are able to add a intern or engineer but youll notice most of the data come back undefined. it doesnt have working tests right now. i tried. 
+
+#### video 
+i had to take a video of the screenrecording so thats why it looks like that 
+
+https://user-images.githubusercontent.com/82404980/128791885-9721b380-bb3d-4eca-9c0b-afe81d407436.mp4
 
 #### links
  https://shelbylb97.github.io/Team-Profile/
