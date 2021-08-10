@@ -1,9 +1,65 @@
-// TODO: Create a function to generate HTML file
-function generateHtml(data) {
+function makeTemplates (employees) {
 
+
+  const managerTemp = (data) => {
     return `
-    
-    <!DOCTYPE html>
+    <p>${data.getName()}</p>
+          <p>${data.getName()}</p>
+    `
+
+  }
+
+  const engineerTemp = (data) => {
+    return `
+    <p>${data.getName()}</p>
+          <p>${data.getRole()}</p>
+    `
+
+  }
+
+
+  const internTemp = (data) => {
+    return `
+    <p>${data.getName()}</p>
+          <p>${data.getRole()}</p>
+    `
+
+  }
+
+
+  console.log('Hello', employees)
+
+  const htmlTemp = [];
+
+  htmlTemp.push(
+    employees.filter(employee => employee.getRole() === 'Manager')
+ .map((manager) => managerTemp(manager))
+ )
+
+
+ htmlTemp.push(employees.filter(employee => employee.getRole() === 'Engineer')
+ .map((engineer) => engineerTemp(engineer)))
+
+htmlTemp.push(
+ employees.filter(employee => employee.getRole() === 'Intern')
+ .map((intern) => internTemp(intern)))
+
+ console.log(htmlTemp.join(''))
+ return htmlTemp.join('')
+}
+
+
+
+
+
+
+
+
+
+function generateHtml(employees) {
+
+
+return ` <!DOCTYPE html>
     <html lang="en">
     <head>
       <meta charset="UTF-8">
@@ -22,54 +78,17 @@ function generateHtml(data) {
           <div class="card-body">
             <h5 class="card-title">team</h5>
             <p class="card-text">employee information file</p>
+            ${makeTemplates(employees)}
           </div>
-          <!-- team header -->
-    
-          <!-- engineer employee template -->
-          <div class="card-footer"><i>engineers</i></div>
-    
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">${data.enName} </h5>
-              <h6 class="card-subtitle mb-2 text-muted">ID : ${data.enId} </h6>
-              <h6 class="card-subtitle mb-2 text-muted">Email : ${data.enEmail} </h6>
-              <h6 class="card-subtitle mb-2 text-muted">GitHub URL : ${data.github} </h6>
-            </div>
           </div>
-          
-          <!-- engineer employee template -->
-    
-          <!-- intern employee template -->
-          <div class="card-footer"><i>Interns</i></div>
-          
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">${data.inName}</h5>
-              <h6 class="card-subtitle mb-2 text-muted">ID : ${data.inId}</h6>
-              <h6 class="card-subtitle mb-2 text-muted">Email : ${data.inEmail}</h6>
-              <h6 class="card-subtitle mb-2 text-muted">School : ${data.school} </h6>
-            </div>
-          </div>
-          <!-- intern employee template -->
-    
-          <!-- signed in template -->
-          <div class="card-footer"><i>Managers</i></div>
-    
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">Signed in as ${data.name}</h5>
-              <h6 class="card-subtitle mb-2 text-muted">ID : ${data.id}</h6>
-              <h6 class="card-subtitle mb-2 text-muted">Email : ${data.email}</h6>
-              <h6 class="card-subtitle mb-2 text-muted">Office Number : ${data.office}</h6>
-            </div>
-          </div>
-          <!-- signed in template -->
-    
         </div>
+          </div>
+        </body>
+        </html>
+`
+
+
     
-      </div>
-    </body>
-    </html>`;
 
  
 };

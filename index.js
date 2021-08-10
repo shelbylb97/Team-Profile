@@ -113,14 +113,21 @@ let employeeNew = [];
 
 //passcode function
 function signIn() {
-  inquirer.prompt(passcode).then(() =>{
-    return console.log("Opening menu")
+  inquirer.prompt(passcode).then((response) =>{
+  
+    const manager =  new Manager(response.name, response.number, response.email, response.office)
+      console.log(manager)
+      employeeNew.push(manager);
+    //return console.log("Opening menu")
+    runMenu();
   });
 };
 
 //engineer funtion need to push to empty array
 function engQs() {
   inquirer.prompt(engineerQ).then((data) =>{
+    const engineer = new Engineer(data.enName, data.enId, data.enEmail, data.enOffice, data.github)
+    employeeNew.push(engineer)
     runMenu();
   })
 };
@@ -128,7 +135,10 @@ function engQs() {
 //intern function 
 function intQs() {
   inquirer.prompt(internQ).then((data) =>{
+    const intern = new Intern(data.inName, data.inId, data.inEmail, data.school)
+    employeeNew.push(intern)
     runMenu();
+    
   })
 };
 
@@ -158,7 +168,7 @@ function runMenu(){
     else {
       console.log("compiling team information")
       console.log('Creating Team Roster')
-      const returnedItem = generateHtml(data);
+      const returnedItem = generateHtml(employeeNew);
       writeToFile('./output/roster.html', returnedItem)
     }
   })
@@ -175,12 +185,13 @@ function writeToFile(fileName, data) {
 
 //function to initialize 
 function firstInit() {
-  inquirer.prompt(passcode).then((data) => {
-    runMenu();
+  // inquirer.prompt(passcode).then((data) => {
+    signIn();
       // console.log('Creating Team Roster')
       // const returnedItem = generateHtml(data);
       // writeToFile('./output/roster.html', returnedItem)
-  })}
+  //})
+}
 
 
 // function secondInit() {
