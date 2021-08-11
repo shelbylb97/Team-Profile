@@ -3,16 +3,37 @@ function makeTemplates (employees) {
 
   const managerTemp = (data) => {
     return `
-    <p>${data.getName()}</p>
-          <p>${data.getName()}</p>
+          <div class="card employee-card">
+    <div class="card-header">
+        <h2 class="card-title">signed in as ${data.getName()}</h2>
+        <h3 class="card-title"><i class="fas fa-user-graduate mr-2"></i>${data.getRole()}</h3>
+    </div>
+    <div class="card-body">
+        <ul class="list-group">
+            <li class="list-group-item">ID: ${data.getId()}</li>
+            <li class="list-group-item">Email: <a href="${data.getEmail()}</a></li>
+            <li class="list-group-item">Office Number: ${data.OfficeNumber()}</li>
+        </ul>
+    </div>
+</div>
     `
-
   }
 
   const engineerTemp = (data) => {
     return `
-    <p>${data.getName()}</p>
-          <p>${data.getRole()}</p>
+          <div class="card employee-card">
+    <div class="card-header">
+        <h2 class="card-title">${data.getName()}</h2>
+        <h3 class="card-title"><i class="fas fa-user-graduate mr-2"></i>${data.getRole()}</h3>
+    </div>
+    <div class="card-body">
+        <ul class="list-group">
+            <li class="list-group-item">ID: ${data.getId()}</li>
+            <li class="list-group-item">Email: <a href="${data.getEmail()}</a></li>
+            <li class="list-group-item">Github: <a href="${data.getGithub()}"></a></li>
+        </ul>
+    </div>
+</div>
     `
 
   }
@@ -20,10 +41,20 @@ function makeTemplates (employees) {
 
   const internTemp = (data) => {
     return `
-    <p>${data.getName()}</p>
-          <p>${data.getRole()}</p>
+          <div class="card employee-card">
+    <div class="card-header">
+        <h2 class="card-title">${data.getName()}</h2>
+        <h3 class="card-title"><i class="fas fa-user-graduate mr-2"></i>${data.getRole()}</h3>
+    </div>
+    <div class="card-body">
+        <ul class="list-group">
+            <li class="list-group-item">ID: ${data.getId()}</li>
+            <li class="list-group-item">Email: <a href="${data.getEmail()}</a></li>
+            <li class="list-group-item">School: ${data.getSchool()}</li>
+        </ul>
+    </div>
+</div>
     `
-
   }
 
 
